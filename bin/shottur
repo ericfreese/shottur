@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'trollop'
+require 'shottur'
+
+UPLOAD_BIN = File.expand_path('../../lib/upload.rb', __FILE__)
+
+opts = Trollop.options do
+  opt(:dir, "Directory to watch for new screenshots",
+      type: :string, required: true)
+  opt(:imgur_client_id, "Imgur client id to use when uploading",
+      type: :string, required: true)
+end
+
+puts "Watching #{opts[:dir]}..."
+
+Shottur::Watcher.new(opts[:dir]) do |file_path|
+  action = %($SHELL -c 'ruby #{UPLOAD_BIN} \
+             --file "#{file_path}" \
+             --imgur-client-id "#{opts[:imgur_client_id]}"')
+
+  Shottur.notify(
+    title:         'New Screenshot',
+    subtitle:      File.basename(file_path),
+    message:       'Click to upload',
+    content_image: file_path,
+    sound:         'Glass',
+    execute:       action
+  )
+end

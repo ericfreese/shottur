@@ -1,0 +1,46 @@
+
+##
+# See following for documentation and default values:
+# - https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+# - https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
+# - https://github.com/bbatsov/rubocop/blob/master/config/disabled.yml
+#
+
+AllCops:
+  TargetRubyVersion: 2.3
+
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
