@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
+begin
+  require 'highlander'
+rescue RuntimeError => e
+  abort(e.message)
+end
 
 require 'trollop'
 require 'shottur'
